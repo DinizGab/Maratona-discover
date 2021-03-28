@@ -1,7 +1,127 @@
-* {
-    color: green;
+/* Universais ============= */
+:root {
+    --color-total-: (#363f5f)   /* Criando uma variável de cor, usa ele com a função var() */
 }
 
-h1 {
-    color: red;
+* {
+    padding: 0;               /* Tira o preenchimento interno das caixas */
+    margin: 0;                /* Tira os espaços laterais dos componentes */
+    box-sizing: border-box;   /* Faz com que a caixa seja medida por sua borda */
+}
+
+body {
+    background: #f0f2f5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {                             /* Chamando a classe container para limitar a página */
+    width: min(90vw, 500px);             /* Vai pegar o mínimo entre os 2 e usar o menos entre eles para definir a largura, se o menor for 90vw usa 90vw, se o menor for 800px usa 800px*/
+    margin: auto;                        /* Vai deixar a margem lateral igual nos 2 lados do container */
+}
+/* Titles ============= */
+h2 {
+    margin-top: 3.2rem;                  /* Muda a margem de cima de todos os h2 */
+    margin-bottom: 0.8rem;               /* Muda a margem debaixo de todos os h2 */                      
+    color: #363f5f;                   
+    font-weight: normal;                 /* Muda a grossura da fonte */
+}
+/* Header ============= */
+header {
+    background: #2d4a22;
+    padding: 2rem 0 10rem;          /* Espaçamento interno do0 conteúdo da caixa */
+    text-align: center;             /* Centralizando o texto */
+}
+
+#logo {                        /* Chamando a Id = Logo */
+    color: #fff;
+    font-weight: 100;          /* Grossura da fonte */
+
+}
+
+/* Balance ============= */
+#balance {                     /* Chamando a Id = Balance */
+    margin-top: -8rem;
+    color: white;            /* Modificando a margem de cima da caixa */
+}
+
+#balance h2 {                  /* Chamando o h2 dentro da Id = Balance */
+    margin-top: 0rem;          /* Tirando a margem de cima do h2 da Id = Balance*/ 
+}
+
+/* Cards ============= */
+.card {                         /* Chamando a Classe = Cards */
+    background: white;
+    padding: 1.5rem 2rem;       /* Separando os cards 1,5 encima e embaixo e 2 esquerda e direita*/
+    border-radius: 0.30rem;     /* Arredondando as bordas */
+    
+    margin-bottom: 2rem;
+    
+    color: var(--color-total-); /* Usando a variável de cor criada no root */
+}
+
+.card h3 {
+    font-weight: normal;
+    font-size: 1rem
+}
+
+.card p {
+    font-size: 2rem;
+    line-height: 3rem;            /* A separação que será feita caso ocorra quebra de linha (distância entre a linha de cima e a de baixo) */
+
+    margin-top: 1rem;             /* Separando o p do h3 dos cards */
+}
+.card.total {                     /* Chamando o card que tem o valor total */
+    background: #49aa26;        /* Mudando o background dele */
+    color: white;               /* Mudando a cor da fonte dele */
+}
+
+/* Table ============= */
+#data-table {
+    width: 100%;                         /* Significa que a tabela irá usar 100% do espaço existente no container que ela está */
+    border-spacing: 0 0.5rem;            /* Tira a borda da tabela em questão (separa com eixo vertical e horizontal - precisa de 2 valores) */
+    color: #969cb3;
+}
+
+table thead tr th:first-child,           /* Vai no cabeçalho da table e chama o primeiro th de tr */
+table tbody tr td:first-child {          /* Vai no corpo da table e chama o primeiro td de tr */
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+table th {               /* cabecalho */
+    background: white;
+    
+    font-weight: normal;
+    padding: 1rem 2rem;
+    text-align: left;  
+}
+
+table tbody tr {                /* Linhas */
+    opacity: 0.7;                      /* Efeito de passar o mouse por cima e ele mudar de cor */
+}
+
+table tbody tr:hover {
+    opacity: 1;                        /* Efeito de passar o mouse por cima e ele mudar de cor */
+}
+
+table td {
+    background: white;
+    padding: 1rem 2rem;
+}
+
+td.description {
+    color: var(--color-total-);
+}
+
+td.income {
+    color: #12a454;
+}
+td.expense {
+    color: #e92929;
+}
+/* Footer ============= */
+footer {
+    text-align: center;
+    padding: 4rem 0 2rem;
+    color: var(--color-total-);
+    opacity: 0.6;
 }
