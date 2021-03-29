@@ -11,11 +11,11 @@
 </head>
 <body>
     <header>
-        <h1 id="logo">dev.finance$</h1></h1>
+        <img src="assets/logo.svg" alt="Logo Dev Finance" id="logo">
     </header>
     <main class="container">           <!-- Criando uma class=container para delimitar a página em CSS --> 
-        <section>
-            <h2 id='balance'>Balanço</h2>
+        <section id="balance">
+            <h2 class="sr-only">Balanço</h2>       <!-- Class para tirar a parte visual desse título usando CSS -->
             <div class="card">
                 <h3>Entradas</h3>
                 <p>R$ 5.000,00</p>
@@ -29,8 +29,8 @@
                 <p>R$ 3.000,00</p>
             </div>
         </section>
-        <section>
-            <h2 id="transactions">Transações</h2>
+        <section id="transactions">
+            <h2 class="sr-only">Transações</h2>
             <table id="data-table">
                 <thead>
                     <tr>

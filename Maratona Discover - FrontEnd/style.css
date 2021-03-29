@@ -1,6 +1,7 @@
 /* Universais ============= */
 :root {
-    --color-total-: (#363f5f)   /* Criando uma variável de cor, usa ele com a função var() */
+    --color-total-: #363f5f;   /* Criando uma variável de cor, usa ele com a função var() */
+    --color-total2: #49aa26;
 }
 
 * {
@@ -14,10 +15,17 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.sr-only {                               /* Tricks em CSS para esconder um bloco, mantendo ele visível apenas para os leitores de tela */
+    position: absolute;                  /* Joga o elemento em uma posição absoluta (que não aparenta estar na página) está encima de outra caixa*/
+                                         /* Diminui a caixa do sr-only no mínimo do mínimo */
+
+}
+
 .container {                             /* Chamando a classe container para limitar a página */
     width: min(90vw, 500px);             /* Vai pegar o mínimo entre os 2 e usar o menos entre eles para definir a largura, se o menor for 90vw usa 90vw, se o menor for 800px usa 800px*/
     margin: auto;                        /* Vai deixar a margem lateral igual nos 2 lados do container */
 }
+
 /* Titles ============= */
 h2 {
     margin-top: 3.2rem;                  /* Muda a margem de cima de todos os h2 */
@@ -25,6 +33,7 @@ h2 {
     color: #363f5f;                   
     font-weight: normal;                 /* Muda a grossura da fonte */
 }
+
 /* Header ============= */
 header {
     background: #2d4a22;
@@ -39,13 +48,13 @@ header {
 }
 
 /* Balance ============= */
-#balance {                     /* Chamando a Id = Balance */
-    margin-top: -8rem;
-    color: white;            /* Modificando a margem de cima da caixa */
+#balance {                      /* Chamando o h2 dentro da Id = Balance */
+    margin-top: -8rem;          /* Tirando a margem de cima do h2 da Id = Balance*/ 
 }
 
-#balance h2 {                  /* Chamando o h2 dentro da Id = Balance */
-    margin-top: 0rem;          /* Tirando a margem de cima do h2 da Id = Balance*/ 
+#balance h2 {                     /* Chamando a Id = Balance */
+    margin-top: 0;
+    color: white;               /* Modificando a margem de cima da caixa */
 }
 
 /* Cards ============= */
@@ -53,26 +62,24 @@ header {
     background: white;
     padding: 1.5rem 2rem;       /* Separando os cards 1,5 encima e embaixo e 2 esquerda e direita*/
     border-radius: 0.30rem;     /* Arredondando as bordas */
-    
     margin-bottom: 2rem;
-    
     color: var(--color-total-); /* Usando a variável de cor criada no root */
 }
 
 .card h3 {
     font-weight: normal;
-    font-size: 1rem
+    font-size: 1rem;
 }
 
 .card p {
     font-size: 2rem;
     line-height: 3rem;            /* A separação que será feita caso ocorra quebra de linha (distância entre a linha de cima e a de baixo) */
-
     margin-top: 1rem;             /* Separando o p do h3 dos cards */
 }
-.card.total {                     /* Chamando o card que tem o valor total */
-    background: #49aa26;        /* Mudando o background dele */
-    color: white;               /* Mudando a cor da fonte dele */
+
+.card.total {                               /* Chamando o card que tem o valor total */
+    background: var(--color-total2);        /* Mudando o background dele */
+    color: white;                         /* Mudando a cor da fonte dele */
 }
 
 /* Table ============= */
@@ -87,15 +94,14 @@ table tbody tr td:first-child {          /* Vai no corpo da table e chama o prim
     border-radius: 0.25rem 0 0 0.25rem;
 }
 
-table th {               /* cabecalho */
+table th {                              /* cabecalho */
     background: white;
-    
     font-weight: normal;
     padding: 1rem 2rem;
     text-align: left;  
 }
 
-table tbody tr {                /* Linhas */
+table tbody tr {                       /* Linhas */
     opacity: 0.7;                      /* Efeito de passar o mouse por cima e ele mudar de cor */
 }
 
@@ -118,6 +124,7 @@ td.income {
 td.expense {
     color: #e92929;
 }
+
 /* Footer ============= */
 footer {
     text-align: center;
