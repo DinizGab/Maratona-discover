@@ -10,6 +10,10 @@
     box-sizing: border-box;   /* Faz com que a caixa seja medida por sua borda */
 }
 
+html {
+    font-size: 93.75;         /* 15px = Esse vai ser o tamanho padrão para o mobile */
+}
+
 body {
     background: #f0f2f5;
     font-family: 'Poppins', sans-serif;
@@ -17,12 +21,18 @@ body {
 
 .sr-only {                               /* Tricks em CSS para esconder um bloco, mantendo ele visível apenas para os leitores de tela */
     position: absolute;                  /* Joga o elemento em uma posição absoluta (que não aparenta estar na página) está encima de outra caixa*/
-                                         /* Diminui a caixa do sr-only no mínimo do mínimo */
-
+    width: 1px;                          /* Diminui a caixa do sr-only no mínimo do mínimo */
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;                    /* Decide o que acontecerá com o conteúdo que saiu da caixa, ou seja, a gente tornou a caixa tão pequena e o conteúdo tão grande que o overflow escondeu ele */  
+    clip: rect(0 0 0 0);                 /* Cria um retângulo com as margens escritas dentro da função rect() */
+    white-space: nowrap;                 /* O espaço branco no texto irá se transformar em uma linha só, fazendo ele ir reto infinitamente */
+    border-width: 0px;                   /* Muda o tamanho da borda do elemento selecionado */
 }
 
 .container {                             /* Chamando a classe container para limitar a página */
-    width: min(90vw, 500px);             /* Vai pegar o mínimo entre os 2 e usar o menos entre eles para definir a largura, se o menor for 90vw usa 90vw, se o menor for 800px usa 800px*/
+    width: min(90vw, 800px);             /* Vai pegar o mínimo entre os 2 e usar o menor entre eles para definir a largura, se o menor for 90vw usa 90vw, se o menor for 800px usa 800px*/
     margin: auto;                        /* Vai deixar a margem lateral igual nos 2 lados do container */
 }
 
@@ -32,6 +42,21 @@ h2 {
     margin-bottom: 0.8rem;               /* Muda a margem debaixo de todos os h2 */                      
     color: #363f5f;                   
     font-weight: normal;                 /* Muda a grossura da fonte */
+}
+
+/*  Links e Buttons ============= */
+a {
+    color: #49aa26;
+    text-decoration: none;               /* Tira o sublinhado do button */
+}
+
+a:hover {
+    color: #3dd705;
+}
+
+.button.new {
+    display: inline-block;               /* O display do botão agora tem propriedades do display Inline e do Block */
+    margin-bottom: 1.4rem;
 }
 
 /* Header ============= */
@@ -49,7 +74,9 @@ header {
 
 /* Balance ============= */
 #balance {                      /* Chamando o h2 dentro da Id = Balance */
-    margin-top: -8rem;          /* Tirando a margem de cima do h2 da Id = Balance*/ 
+    margin-top: -8rem;          /* Tirando a margem de cima do h2 da Id = Balance */
+    width: 100%;
+    display: block;
 }
 
 #balance h2 {                     /* Chamando a Id = Balance */
@@ -69,6 +96,10 @@ header {
 .card h3 {
     font-weight: normal;
     font-size: 1rem;
+
+    display: flex;                    /* Transforma o h3 em um display flex, dando maior controle para os elementos da */
+    align-items: center;              /* Alinha o h3 com a imagem na mesma linha só funciona com display flex */ 
+    justify-content: space-between;   /* Justifica a imagem e o texto h3 com um espaço entre eles */ 
 }
 
 .card p {
@@ -94,6 +125,11 @@ table tbody tr td:first-child {          /* Vai no corpo da table e chama o prim
     border-radius: 0.25rem 0 0 0.25rem;
 }
 
+table thead tr th:last-child,           /* Vai no cabeçalho da table e chama o último th de tr */
+table tbody tr td:last-child {          /* Vai no corpo da table e chama o último td de tr */
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
 table th {                              /* cabecalho */
     background: white;
     font-weight: normal;
@@ -109,7 +145,7 @@ table tbody tr:hover {
     opacity: 1;                        /* Efeito de passar o mouse por cima e ele mudar de cor */
 }
 
-table td {
+table tbody td {
     background: white;
     padding: 1rem 2rem;
 }
@@ -119,7 +155,7 @@ td.description {
 }
 
 td.income {
-    color: #12a454;
+    color: #12a454; 
 }
 td.expense {
     color: #e92929;
@@ -131,4 +167,16 @@ footer {
     padding: 4rem 0 2rem;
     color: var(--color-total-);
     opacity: 0.6;
+}
+
+/* Responsive ============= */
+@media (min-width: 800px) {       /* A partir do width de 800 ele irá ativar isso */
+    html {
+        font-size: 87.5%;         /* 14px */
+    }
+    #balance {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);         /* fr = fração = é o tamanho das porções de cada pedaço da box (3 x 1fr) =o que tá escrito na função */
+        gap: 2rem;
+    }
 }
