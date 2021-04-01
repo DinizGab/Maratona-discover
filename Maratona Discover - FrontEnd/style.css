@@ -2,6 +2,8 @@
 :root {
     --color-total-: #363f5f;   /* Criando uma variável de cor, usa ele com a função var() */
     --color-total2: #49aa26;
+    --color-green: #3dd705;
+    --red: #e92929;
 }
 
 * {
@@ -46,17 +48,54 @@ h2 {
 
 /*  Links e Buttons ============= */
 a {
-    color: #49aa26;
+    color: var(--color-total2);
     text-decoration: none;               /* Tira o sublinhado do button */
 }
 
 a:hover {
-    color: #3dd705;
+    color: var(--color-green);
 }
 
 .button.new {
     display: inline-block;               /* O display do botão agora tem propriedades do display Inline e do Block */
     margin-bottom: 1.4rem;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+
+    color: white;
+    background: var(--color-total2);
+
+    padding: 0;
+
+    border: none;
+    border-radius: 0.25rem;
+
+    cursor: pointer;                    /* Faz com que o cursor se transforme na mãozinha ao passar por cima */
+}
+
+button:hover {
+    background: var(--color-green);
+}
+
+.button.cancel {
+    color: var(--red);
+    border: 2px var(--red) solid;
+    border-radius: 0.25rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 50px;
+
+    opacity: 0.6;
+}
+
+.button.cancel:hover {
+    opacity: 1;
 }
 
 /* Header ============= */
@@ -69,6 +108,7 @@ header {
 #logo {                        /* Chamando a Id = Logo */
     color: #fff;
     font-weight: 100;          /* Grossura da fonte */
+    margin-bottom: 2rem;
 
 }
 
@@ -113,9 +153,83 @@ header {
     color: white;                         /* Mudando a cor da fonte dele */
 }
 
+/* Modal ============= */
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;                          /* Fixa a posição na tela em um local específico  */
+    top: 0;                                   /* Escolhe a posição para fixar a caixa no topo da página */
+
+    display: flex;  
+    align-items: center;                      /* Alinha o modal no centro do overlay */
+    justify-content: center;                  /* Justifica o modal no centro do overlay, assim, ele fica no meio da página */
+
+    opacity: 0; 
+    visibility: hidden;                       /* Ficará escondida enquanto o script não chamar a class "active" */
+
+    z-index: 999;
+}
+
+.modal-overlay.active {                       /* Só vai aplicar isso quando a classe active estiver ativa, será feito por JS */
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: #f0f2f5;
+    padding: 2.4rem;
+    position: relative;
+    z-index: 999;                             /* Muda a ordem de empilhamento dos itens, jogando o que tem maior z-index lá pra cima e o de menor lá pra baixo (Só é possível usar quando temos uma position definida) */
+}
+
+/* Form ============= */
+#form {
+    max-width: 500px;                       /* Largura máxima do formulário dentro do modal */
+}
+
+#form h2 {
+    margin-top: 0;
+}
+
+input {
+    border: none;
+    border-radius: 0.2rem;
+    
+    padding: 0.8rem;
+
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+}
+.input-group {
+    margin-top: 0.8rem;
+}
+
+.input-group small {
+    opacity: 0.6;
+}
+
+.input-group.actions {                          /* Justificando e alinhando os botões */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-group.actions .button,                    /* Mexendo nos botões = Selecionando o .button e o button */
+.input-group.actions button {
+    width: 48%;
+}
+
 /* Table ============= */
-#data-table {
+#transactions {
     width: 100%;                         /* Significa que a tabela irá usar 100% do espaço existente no container que ela está */
+    overflow-x: auto;
+    display: block;
+}
+
+#data-table {
+    width: 100%;
     border-spacing: 0 0.5rem;            /* Tira a borda da tabela em questão (separa com eixo vertical e horizontal - precisa de 2 valores) */
     color: #969cb3;
 }
@@ -176,7 +290,7 @@ footer {
     }
     #balance {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);         /* fr = fração = é o tamanho das porções de cada pedaço da box (3 x 1fr) =o que tá escrito na função */
+        grid-template-columns: repeat(3, 1fr);         /* fr = fração = é o tamanho das porções de cada pedaço da box (3 x 1fr) = o que tá escrito na função */
         gap: 2rem;
     }
 }
