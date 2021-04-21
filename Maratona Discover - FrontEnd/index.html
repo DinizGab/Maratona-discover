@@ -23,7 +23,7 @@
                     </span>
                     <img src="./assets/income.svg" alt="Imagem de entradas">
                 </h3>
-                <p id="incomeDisplay">R$ 5.000,00</p>
+                <p id="incomeDisplay">R$ 0,00</p>
             </div>
 
             <div class="card">
@@ -33,7 +33,7 @@
                     </span> 
                     <img src="./assets/expense.svg" alt="Imagem de saídas">
                 </h3>
-                <p id="expenseDisplay">RS 2.000,00</p>
+                <p id="expenseDisplay">R$ 0,00</p>
             </div>
 
             <div class="card total">
@@ -43,7 +43,7 @@
                     </span> 
                     <img src="./assets/total.svg" alt="Imagem do total">
                 </h3>
-                <p id="totalDisplay">R$ 3.000,00</p>
+                <p id="totalDisplay">R$ 0,00</p>
             </div>
             <a href="#" class="button new" onclick="Modal.open()"> + Nova Transação</a>        <!-- É para abrir o modal ao clicar nesse botão, por isso o atributo onclick -->
         </section>
@@ -69,7 +69,7 @@
         <div class="modal">
             <div id="form">
                 <h2>Nova Transação</h2>
-                <form action="">
+                <form action="" onsubmit="Form.submit(event)">
                         <div class="input-group">
                             <label class="sr-only" for="description">Descrição</label>        <!-- Dá o nome pra o input -->
                             <input type="text" id="description" name="description" placeholder="Descrição">
@@ -85,7 +85,7 @@
                             <input type="date" name="date" id="date">
                         </div>
                         <div class="input-group actions">
-                            <a href="" class="button cancel" onclick="Modal.close()" >Cancelar</a>
+                            <a href="" class="button cancel" onclick="Modal.close()">Cancelar</a>
                             <button>Salvar</button>
                         </div>
                 </form>
