@@ -6,5 +6,5 @@ A aplicação consiste em um administrador de finanças, podendo colocar entrada
 
 ## Próximos objetivos
 - [ ]  Criação do Back-End da aplicação
-- [ ]  Adicionar um Dark-Mode na apliciação
+- [ ]  Adicionar um Dark-Mode na aplicação
 - [ ]  Adicionar animações em CSS para algumas interações que ocorrerão no site
